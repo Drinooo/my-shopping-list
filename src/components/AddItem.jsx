@@ -1,7 +1,6 @@
 import {
   Box,
   FormControl,
-  IconButton,
   InputLabel,
   MenuItem,
   Select,
@@ -10,9 +9,8 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { QUANTITY } from "../config/data";
-import { DeleteIcon } from "./common/Icons";
 
-export const AddItem = ({ itemName, quantity, onDelete }) => {
+export const AddItem = ({ itemName, quantity }) => {
   const [newItemName, setNewItemName] = useState("");
   const [newQuantity, setNewQuantity] = useState("");
 
@@ -22,14 +20,6 @@ export const AddItem = ({ itemName, quantity, onDelete }) => {
 
   const handleQuantity = (e) => {
     setNewQuantity(e.target.value);
-  };
-
-  const handleAddItem = () => {
-    itemName(newItemName);
-    quantity(newQuantity);
-    // Optionally, you can reset the input fields after adding an item
-    setNewItemName("");
-    setNewQuantity("");
   };
 
   return (
@@ -58,9 +48,6 @@ export const AddItem = ({ itemName, quantity, onDelete }) => {
             ))}
           </Select>
         </FormControl>
-        <IconButton onClick={() => onDelete(newItemName, newQuantity)}>
-          <DeleteIcon />
-        </IconButton>
       </Stack>
     </Box>
   );

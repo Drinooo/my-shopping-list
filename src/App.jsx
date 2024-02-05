@@ -26,11 +26,16 @@ function App() {
     setNewTypeName([...newTypeName, newType]);
   };
 
+    // Delete a todo
+    const deleteItem = (id) => {
+      setNewListName(newListName.filter((item) => item.id !== id));
+    };
+
   return (
     <Box>
       <Typography>Shopping List</Typography>
       <AddList listName={addList} typeName={addType} />
-      <ItemList items={newListName} />
+      <ItemList items={newListName} deleteItem={deleteItem} />
     </Box>
   );
 }

@@ -3,7 +3,7 @@ import { AddItem } from "./AddItem";
 import { Box, IconButton, Stack } from "@mui/material";
 import { DeleteIcon } from "./common/Icons";
 
-export const ItemList = ({ items }) => {
+export const ItemList = ({ items, deleteItem }) => {
   const [newItemName, setNewItemName] = useState([]);
   const [newQuantity, setNewQuantity] = useState([]);
 
@@ -25,28 +25,14 @@ export const ItemList = ({ items }) => {
     setNewQuantity([...newQuantity, newQuan]);
   };
 
-  const deleteItem = (itemName, itemQuantity) => {
-    // Find the item with the given itemName and itemQuantity
-    const itemId = newItemName.find(
-      (item) => item.name === itemName && item.quan === itemQuantity
-    )?.id;
-
-    if (id) {
-      // Filter out the item with the given itemId
-      setNewItemName(newItemName.filter((item) => item.id !== itemId));
-      setNewQuantity(newQuantity.filter((item) => item.id !== itemId));
-    }
-  };
-
   return (
     <Box>
       {items.map((item) => (
         <Stack key={item.id} direction={"row"} spacing={2}>
-          <AddItem
-            itemName={item.name}
-            quantity={item.quan}
-            onDelete={(itemName, itemQuantity) => deleteItem(itemName, itemQuantity)}
-          />
+          <AddItem itemName={addItem} quantity={addQuantity} />
+          <IconButton onClick={() => deleteItem(item.id)}>
+            <DeleteIcon />
+          </IconButton>
         </Stack>
       ))}
     </Box>
