@@ -9,11 +9,11 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useState } from "react";
-import { QUANTITY, TYPES } from "../config/data";
+import { TYPES } from "../config/data";
 
 const AddList = ({ listName, typeName }) => {
-  const [newListName, setNewListName] = useState("");
-  const [newTypeName, setNewTypeName] = useState("");
+  const [newListName, setNewListName] = useState();
+  const [newTypeName, setNewTypeName] = useState();
 
   const handleListName = (e) => {
     setNewListName(e.target.value);
@@ -27,8 +27,8 @@ const AddList = ({ listName, typeName }) => {
     if (newListName.trim() === "" || newTypeName.trim() === "") return;
     listName(newListName);
     typeName(newTypeName);
-    setNewListName("");
-    setNewTypeName("");
+    setNewListName(newListName);
+    setNewTypeName(newTypeName);
   };
 
   return (
