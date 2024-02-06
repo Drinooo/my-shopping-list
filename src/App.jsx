@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import "./App.css";
 import { useEffect, useState } from "react";
 import AddList from "./components/AddList";
@@ -64,13 +64,16 @@ function App() {
   };
 
   return (
-    <Box>
-      <Typography>Shopping List</Typography>
+    <Stack direction={"column"} spacing={3}>
+      <Typography variant="h1" component={"h1"} sx={{ textAlign: "center" }}>
+        Shopping List
+      </Typography>
+
       <AddList listName={addList} typeName={addType} />
       <ItemList items={newListName} deleteItem={deleteItem} />
       {error && <Typography color="error">{error}</Typography>}
       <SaveList saveList={handleSave} />
-    </Box>
+    </Stack>
   );
 }
 

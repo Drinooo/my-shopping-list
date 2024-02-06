@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AddItem } from "./AddItem";
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, IconButton, Paper, Stack, Typography } from "@mui/material";
 import { DeleteIcon } from "./common/Icons";
 
 export const ItemList = ({ items, deleteItem }) => {
@@ -26,15 +26,19 @@ export const ItemList = ({ items, deleteItem }) => {
   };
 
   return (
-    <Box>
+    <Paper elevation={2}>
+      <Paper elevation={3}>
+        <Typography>Item Name</Typography>
+        <Typography>Quantity</Typography>
+      </Paper>
       {items.map((item) => (
-        <Stack key={item.id} direction={"row"} spacing={2}>
+        <Paper elevation={1} key={item.id}>
           <AddItem itemName={addItem} quantity={addQuantity} />
           <IconButton onClick={() => deleteItem(item.id)}>
             <DeleteIcon />
           </IconButton>
-        </Stack>
+        </Paper>
       ))}
-    </Box>
+    </Paper>
   );
 };

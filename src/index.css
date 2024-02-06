@@ -1,0 +1,8 @@
+body{
+  background-color: #121212;
+  font-family: 'Figtree', sans-serif;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}

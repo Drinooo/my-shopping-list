@@ -4,6 +4,7 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   Stack,
   TextField,
@@ -32,8 +33,8 @@ const AddList = ({ listName, typeName }) => {
   };
 
   return (
-    <Box>
-      <Stack direction={"row"} spacing={2}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <Paper elevation={1}>
         <FormControl fullWidth>
           <TextField
             id="filled-basic"
@@ -57,10 +58,12 @@ const AddList = ({ listName, typeName }) => {
             ))}
           </Select>
         </FormControl>
-      </Stack>
-      <Stack direction={"row"} spacing={2}>
-        <Button onClick={handleAddList} variant="contained" fullWidth>Add An Item</Button>
-      </Stack>
+      </Paper>
+      <Box>
+        <Button onClick={handleAddList} variant="contained" fullWidth>
+          Add An Item
+        </Button>
+      </Box>
     </Box>
   );
 };
